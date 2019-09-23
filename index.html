@@ -8,76 +8,253 @@
 </head>
 
 <body>
-    <div class="scrollContent">
-        <section id="titlechart">
-          <div id="description">
-            <h1>Simple Pinning</h1>
-            <h2>Two examples of basic pinning.</h2>
-            <ol>
-              <li>A pin of a scene that has a duration will be pinned for the respective ammount of scrolled pixels and then released again.</li>
-              <li>If no duration is defined, the pinned element will never be released unless scrolling back past the trigger position.</li>
-            </ol>
-            <p>
-              Note that the first pin pushes down the following elements. A gap with the size of the scene's duration appears.<br>
-              This can be disabled using the option <code>pushFollowers: false</code>. For scenes with a duration of 0 "<code>pushFollowers</code>" is always disabled.
-            </p>
-            <p>
-              For more information check out the documentation on <a href="../../docs/ScrollMagic.Scene.html#setPin">Scene.setPin()</a>.
-            </p>
-            <a href="#" class="viewsource">view source</a>
-          </div>
-          <script>
-            // init controller
-            var controller = new ScrollMagic.Controller();
-          </script>
-        </section>
-        <section class="demo">
-          <div class="spacer s2"></div>
-          <div id="trigger1" class="spacer s0"></div>
-          <div id="pin1" class="box2 blue">
-            <p>Stay where you are (at least for a while).</p>
-            <a href="#" class="viewsource">view source</a>
-          </div>
-          <div class="spacer s2"></div>
-          <script>
-            $(function () { // wait for document ready
-              // build scene
-              var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 300})
-                      .setPin("#pin1")
-                      .addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
-                      .addTo(controller);
-            });
-          </script>
-        </section>
-        <section class="demo">
-          <div class="spacer s2"></div>
-          <div id="trigger2" class="spacer s0"></div>
-          <div id="pin2" class="box2 blue">
-            <p>Take me with you!</p>
-            <a href="#" class="viewsource">view source</a>
-          </div>
-          <div class="spacer s2"></div>
-          <script>
-            $(function () { // wait for document ready
-              // build scene
-              var scene = new ScrollMagic.Scene({triggerElement: "#pin2"})
-                      .setPin("#pin2")
-                      .addIndicators({name: "2 (duration: 0)"}) // add indicators (requires plugin)
-                      .addTo(controller);
-            });
-          </script>
-        </section>			
-        <div class="spacer s_viewport"></div>
-      </div>
-    </body>
+  <div class="wrapper">
+    <div class="container">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js" integrity="sha256-XBVALc3QsDSQiDtiaBwNZ2rxCJTHzlUhhlDQ84J8bw8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js" integrity="sha256-2p2tRZlPowp3P/04Pw2rqVCSbhyV/IB7ZEVUglrDS/c=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js" integrity="sha256-+9YNuItWuR4sbqeaNiJOxG0BvptYz4fbUXbIZoH5Jwo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js" integrity="sha256-VV47uJSoHZUeiBcCs3FcBOQLMn++yeG/zqZvaUkvGZM=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineLite.min.js" integrity="sha256-nuhNsfXzBFR6G1lKP8bK77dakkQDqdHcQ4OCFZvk6Qo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js" integrity="sha256-LBjlnpPrM6Aig8LDFc9PJctPHLGUc6RaUvnmXE4hV5Y=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/BezierPlugin.min.js" integrity="sha256-5jxCMRC1PYU02qJn+fj+DPuxcQZCh0DR8GRwi4iKoRc=" crossorigin="anonymous"></script>
+<div class="scrollContent">
+	<section id="titlechart">
+		<div id="description">
+			<h1>Simple Pinning</h1>
+			<h2>Two examples of basic pinning.</h2>
+			<ol>
+				<li>A pin of a scene that has a duration will be pinned for the respective ammount of scrolled pixels and then released again.</li>
+				<li>If no duration is defined, the pinned element will never be released unless scrolling back past the trigger position.</li>
+			</ol>
+			<p>
+				Note that the first pin pushes down the following elements. A gap with the size of the scene's duration appears.<br>
+				This can be disabled using the option <code>pushFollowers: false</code>. For scenes with a duration of 0 "<code>pushFollowers</code>" is always disabled.
+			</p>
+			<p>
+				For more information check out the documentation on <a href="../../docs/ScrollMagic.Scene.html#setPin">Scene.setPin()</a>.
+			</p>
+			<a href="#" class="viewsource">view source</a>
+		</div>
+		<script>
+			// init controller
+			var controller = new ScrollMagic.Controller();
+		</script>
+	</section>
+	<section class="demo">
+		<div class="spacer s2"></div>
+		<div id="trigger1" class="spacer s0"></div>
+		<div id="pin1" class="box2 blue">
+			<p>Stay where you are (at least for a while).</p>
+			<a href="#" class="viewsource">view source</a>
+		</div>
+		<div class="spacer s2"></div>
+		<script>
+			$(function () { // wait for document ready
+				// build scene
+				var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 300})
+								.setPin("#pin1")
+								.addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
+								.addTo(controller);
+			});
+		</script>
+	</section>
+	<section class="demo">
+		<div class="spacer s2"></div>
+		<div id="trigger2" class="spacer s0"></div>
+		<div id="pin2" class="box2 blue">
+			<p>Take me with you!</p>
+			<a href="#" class="viewsource">view source</a>
+		</div>
+		<div class="spacer s2"></div>
+		<script>
+			$(function () { // wait for document ready
+				// build scene
+				var scene = new ScrollMagic.Scene({triggerElement: "#pin2"})
+								.setPin("#pin2")
+								.addIndicators({name: "2 (duration: 0)"}) // add indicators (requires plugin)
+								.addTo(controller);
+			});
+		</script>
+	</section>			
+	<div class="spacer s_viewport"></div>
+</div>
+
+      <div class="nav">
+        <div class="navGap"></div>
+        <div class="item navItem"><p>Home</p></div>
+        <div class="item navItem"><p>Forums</p></div>
+        <div class="item navItem"><p>Play</p></div>
+        <div class="item navItem"><p>Rankings</p></div>
+        <div class="navGap"></div>
+      </div>
+    
+      <div class="content">
+        <div class="sidebar sidebar-L"></div>
+        <div class="mainContent"></div>
+        <div class="sidebar sidebar-R"></div>
+    </div>
+    
+    <div class="footer"></div>
+
+  </div>
+
+  <style>
+    .container {
+      display: grid;
+      width: 80%;
+      max-width: 1100px;
+      grid-template-columns: 1fr 5fr 1fr;
+      grid-template-rows: minmax(70px, 8vh) 9fr 150px;
+      grid-auto-rows: 0px;
+      background: blue;
+      grid-template-areas: 
+      "nav        nav          nav"
+      "content   content     content"
+      "footer    footer     footer";
+      align-content: start;
+      justify-content: center;
+      border-radius: 15px 15px 15px 15px;
+    }
+
+    .navItem:hover{
+      background: rgba(255, 255, 255, .5);
+      transition: .15s;
+    }
+
+    .wrapper {
+      padding: 90vh 0px 0px 0px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .item {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+      font-size: 35px;
+    }
+
+    .nav {
+      grid-area: nav;
+      display: grid;
+      grid-template-columns:  minmax(10%, 20%) minmax(130px, 1fr) minmax(130px, 1fr) minmax(130px, 1fr) minmax(130px, 1fr) minmax(10%, 20%);
+      grid-template-rows: 100%;
+      background-color: red;
+      z-index: 3;
+      border-radius: 15px 15px 0px 0px;
+    }
+
+    
+    
+    .navItem{
+      margin: 5px;
+      background: rgba(20, 20, 20, .1);
+      align-content: center;
+      min-width: 50px;
+      font-size: calc(16px + 6 * ((100vw - 320px) / 780));
+    }
+
+    .footer {
+      max-height: 150px;
+      background: maroon;
+      grid-area: footer;
+      width: 100%;
+      border-radius: 0px 0px 15px 15px;
+    }
+
+    .content {
+      grid-area: content;
+      display: grid;
+      grid-template-columns: 120px 5fr 120px;
+      grid-template-rows: 100%;
+      background: yellow;
+      width: 100%;
+      grid-template-areas: "sidebar-L main-content sidebar-R";
+      height: 90vh;
+
+    }
+
+    .sidebar {
+      background: turquoise;
+      width: 80%;
+      height: 60%;
+      align-self: center;
+      justify-self: center;
+    }
+
+    .sidebar-L {
+      grid-area: sidebar-L;
+      background: turqouise;
+    }
+    .sidebar-R {
+      grid-area: sidebar-R;
+      background: cyan;
+    }
+
+    .mainContent{
+      width: 100%;
+      grid-area: main-content;
+      background: yellow;
+    }
+
+    body {
+      margin: 20px;
+      background: black;
+    }
+
+    @media screen and (max-width: 815px) {
+      .content {
+      grid-area: content;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 8fr 1.5fr 1.5fr;
+      background: yellow;
+      width: 100%;
+      grid-template-areas: 
+        "main-content"
+        "sidebar-L"
+        "sidebar-R";
+    }
+
+    .wrapper {
+      padding: 5px 5px 5px 5px;
+    }
+    
+    .container {
+      min-width: 100%;
+    }
+
+    body {
+      margin: 10px;
+    }
+
+    .sidebar {
+      width: 80%;
+      min-width: 250px;
+      height: 90%;
+      justify-self: center;
+      align-self: center;
+    }
+      .nav {
+      grid-area: nav;
+      display: grid;
+      grid-template-columns: 0fr 1fr 1fr 1fr 1fr 0fr;
+      grid-template-rows: 100%;
+      background-color: red;
+      z-index: 3;
+      border-radius: 15px 15px 0px 0px;
+      }
+
+      .navItem {
+        font-size: 20px;
+      }
+    }
+  </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/BezierPlugin.min.js"></script>
 
 <script src="app.js"></script>
 </body>

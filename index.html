@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+
+      <div class="nav">
+        <div class="navGap"></div>
+        <div class="item navItem"><p>Home</p></div>
+        <div class="item navItem"><p>Forums</p></div>
+        <div class="item navItem"><p>Play</p></div>
+        <div class="item navItem"><p>Rankings</p></div>
+        <div class="navGap"></div>
+      </div>
+    
+      <div class="content">
+        <div class="sidebar sidebar-L"></div>
+        <div class="mainContent"></div>
+        <div class="sidebar sidebar-R"></div>
+    </div>
+    
+    <div class="footer"></div>
+
+  </div>
+
+  <style>
+    .container {
+      display: grid;
+      width: 80%;
+      max-width: 1100px;
+      grid-template-columns: 1fr 5fr 1fr;
+      grid-template-rows: minmax(70px, 8vh) 9fr 150px;
+      grid-auto-rows: 0px;
+      background: blue;
+      grid-template-areas: 
+      "nav        nav          nav"
+      "content   content     content"
+      "footer    footer     footer";
+      align-content: start;
+      justify-content: center;
+      border-radius: 15px 15px 15px 15px;
+    }
+
+    .navItem:hover{
+      background: rgba(255, 255, 255, .5);
+      transition: .15s;
+    }
+
+    .wrapper {
+      padding: 90vh 0px 0px 0px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .item {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+      font-size: 35px;
+    }
+
+    .nav {
+      grid-area: nav;
+      display: grid;
+      grid-template-columns:  minmax(10%, 20%) minmax(130px, 1fr) minmax(130px, 1fr) minmax(130px, 1fr) minmax(130px, 1fr) minmax(10%, 20%);
+      grid-template-rows: 100%;
+      background-color: red;
+      z-index: 3;
+      border-radius: 15px 15px 0px 0px;
+    }
+    
+    .navItem{
+      margin: 5px;
+      background: rgba(20, 20, 20, .1);
+      align-content: center;
+      min-width: 50px;
+      font-size: calc(16px + 6 * ((100vw - 320px) / 780));
+    }
+
+    .footer {
+      max-height: 150px;
+      background: maroon;
+      grid-area: footer;
+      width: 100%;
+      border-radius: 0px 0px 15px 15px;
+    }
+
+    .content {
+      grid-area: content;
+      display: grid;
+      grid-template-columns: 120px 5fr 120px;
+      grid-template-rows: 100%;
+      background: yellow;
+      width: 100%;
+      grid-template-areas: "sidebar-L main-content sidebar-R";
+      height: 90vh;
+
+    }
+
+    .sidebar {
+      background: turquoise;
+      width: 80%;
+      height: 60%;
+      align-self: center;
+      justify-self: center;
+    }
+
+    .sidebar-L {
+      grid-area: sidebar-L;
+      background: turqouise;
+    }
+    .sidebar-R {
+      grid-area: sidebar-R;
+      background: cyan;
+    }
+
+    .navGap {
+      /* background: purple; */
+    }
+
+    .mainContent{
+      width: 100%;
+      grid-area: main-content;
+      background: yellow;
+    }
+
+    body {
+      margin: 20px;
+    }
+
+    @media screen and (max-width: 815px) {
+      .content {
+      grid-area: content;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 8fr 1.5fr 1.5fr;
+      background: yellow;
+      width: 100%;
+      grid-template-areas: 
+        "main-content"
+        "sidebar-L"
+        "sidebar-R";
+    }
+
+    .wrapper {
+      padding: 5px 5px 5px 5px;
+    }
+    
+    .container {
+      min-width: 100%;
+    }
+
+    body {
+      margin: 10px;
+    }
+
+    .sidebar {
+      width: 80%;
+      min-width: 250px;
+      height: 90%;
+      justify-self: center;
+      align-self: center;
+    }
+      .nav {
+      grid-area: nav;
+      display: grid;
+      grid-template-columns: 0fr 1fr 1fr 1fr 1fr 0fr;
+      grid-template-rows: 100%;
+      background-color: red;
+      z-index: 3;
+      border-radius: 15px 15px 0px 0px;
+      }
+
+      .navItem {
+        font-size: 20px;
+      }
+    }
+  </style>
+
+  
+
+</body>
+</html>

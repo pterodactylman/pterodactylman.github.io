@@ -89,7 +89,7 @@
   let spinCount = 0;
   
 
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function() {
 
         if(playing == false && spinCount == 0) {
 
@@ -123,7 +123,7 @@
         textStyle.innerHTML = `#text {color: ${textColor}}`;
         document.body.appendChild(textStyle);
 
-        document.addEventListener("keypress", function() {
+        document.addEventListener("keypress", function(e) {
         if(e.code == "Space" && playing == false)
         spinCount = 0;
         const reset =
@@ -133,7 +133,6 @@
           document.body.appendChild(reset);
 
           document.getElementById("text").innerHTML = ``;
-        }
         }); 
       }
     });

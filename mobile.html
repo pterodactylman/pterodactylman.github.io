@@ -36,7 +36,7 @@
       }
     
     #text {
-      font-size: 60px;
+      font-size: 80px;
       grid-area: text;
       height: 100px;
       width: 100%;
@@ -63,8 +63,8 @@
       display: grid;
       background: url(wheel_mobile.png);
       background-position: center;
-      width: 700px;
-      height: 700px;
+      width: 900px;
+      height: 900px;
       transition: all 6s;
       grid-area: wheel;
       background-repeat: no-repeat;
@@ -88,8 +88,6 @@
   let playing = false;
   let spinCount = 0;
   
-  var scale = 'scale(2)';
-    document.body.style.webkitTransform =  scale;
 
       document.addEventListener('click', function() {
 
@@ -105,8 +103,6 @@
         const textColor = prizes[`${winningPosition}`];
         const spinSpeed = Math.floor(Math.random() * 4) + 2; //seconds
         playing = true;
-
-        prompt();
 
         const rotate =
         document.createElement('style');

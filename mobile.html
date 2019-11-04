@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+  <title>wheel</title>
+</head>
+<body>
+
+  <div class ="main-container">▼
+    <div id="text"></div>
+      <div class="shadow">
+        <div class="wheel">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <style>
+
+    html {
+      background: #1f1f1f;
+      background-size: cover;
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      }
+    
+    #text {
+      font-size: 60px;
+      grid-area: text;
+      height: 100px;
+      width: 100%;
+      font-family: 'Lobster', cursive;
+      text-shadow: 0px 0px 20px #000000;
+    }
+
+    .main-container {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      align-content: center;
+      justify-content: center;
+      grid-template-columns: 1;
+      grid-template-rows: 2;
+      grid-template-areas: "text"
+                           "wheel";
+      margin-top: -50px;
+      grid-row-gap: 10px;
+      color: white;
+    }
+    
+    .wheel {
+      display: grid;
+      background: #018DED url(wheel.png);
+      background-position: center;
+      width: 700px;
+      height: 700px;
+      clip-path: circle(36%);
+      transition: all 6s;
+      grid-area: wheel;
+    }
+
+    .shadow {
+      box-shadow: 0px 0px 60px black;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 500px;
+      height: 500px;
+      border: 10px solid black;
+    }
+
+  </style>
+
+  <script>
+
+  let playing = false;
+  let spinCount = 0;
+  
+
+      document.addEventListener('click', function(e) {
+
+        if(playing == false && spinCount == 0) {
+
+        const prizes = {0: "darkorange", 1: "red", 2: "pink", 3: "purple", 4: "indigo", 5: "blue", 6: "dodgerblue", 7: "green", 8: "chartreuse", 9: "yellow", 10: "gold", 11: "orange"};
+        const numberOfSpins = Math.floor(Math.random() * 8) + 8;
+        const winningPosition = (Math.floor(Math.random() * 12));
+        const degreesOfSpin = ((numberOfSpins * 360) + ((winningPosition * 30) + 15)) * -1;
+        const transform = document.getElementsByClassName('wheel');
+        const prize = prizes[`${winningPosition}`];
+        const prizeText = prize[0].toUpperCase() + prize.substring(1);
+        const textColor = prizes[`${winningPosition}`];
+        const spinSpeed = Math.floor(Math.random() * 4) + 2; //seconds
+        playing = true;
+
+        prompt();
+
+        const rotate =
+        document.createElement('style');
+        rotate.innerHTML = `.wheel {transform: rotate(${degreesOfSpin}deg);
+                                    transition: all ${spinSpeed}s}`;
+        document.body.appendChild(rotate);
+
+        setTimeout(function() {
+        document.getElementById("text").innerHTML = `${prizeText}`;
+        playing = false;
+        spinCount = 1;
+        }, `${spinSpeed * 1000}`);
+
+        const textStyle =
+        document.createElement('style');
+        textStyle.innerHTML = `#text {color: ${textColor}}`;
+        document.body.appendChild(textStyle);
+
+        document.addEventListener("keypress", function() {
+        if(e.code == "Space" && playing == false)
+        spinCount = 0;
+        const reset =
+          document.createElement('style');
+          reset.innerHTML = `.wheel {transform: rotate(0deg);
+                                      transition: none}`;
+          document.body.appendChild(reset);
+
+          document.getElementById("text").innerHTML = ``;
+        }
+        }); 
+      }
+    });
+
+  </script>
+</body>
+</html>
